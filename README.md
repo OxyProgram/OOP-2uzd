@@ -17,3 +17,4 @@ Per komandinę eilutę sukompiliuoti .cpp failą į paleidžiamąją (.exe) prog
 Versijos:
 
 v0.1 - Įvykdyti užduoties reikalavimai.
+
