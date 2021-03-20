@@ -20,8 +20,9 @@ int main() {
     using std::chrono::duration;
     using std::chrono::milliseconds;
 
-    vector<student> studentai;
     int n;
+    vector<student> studentai;
+    studentai.reserve(n);
     double laikas = 0.0;
 
     cout << "Iveskite saraso dydi:  " << flush;

@@ -8,6 +8,8 @@
 #include <sstream>
 #include <chrono>
 #include <sstream>
+#include <random>
+
 
 #include "header.h"
 
@@ -18,11 +20,9 @@ void nuskaitytiDuomenis(vector<student> &studentai, int n) {
     name += to_string(n);
     name += ".txt";
     ifstream in(name);
-    try {
-        if(!in.is_open())
-            throw new exception;
-    } catch (exception e) {
-        cout << "failas neatidarytas!" << endl;
+    if(in.fail()) {
+        cout << "Failo atidaryti nepavyko!" << "\n";
+        return;
     }
 
     student temp;
@@ -40,20 +40,7 @@ void nuskaitytiDuomenis(vector<student> &studentai, int n) {
 
         studentai.push_back(temp);
     }
-
-    // while (getline(in, t)) {
-    //     istringstream iss(t);
-
-    //     iss >> vardas >> pavarde;
-    //     iss >> t1;
-    //     cout << vardas + "  " <<pavarde;
-
-    //     iss >> egz;
-    //     temp.vardas = vardas;
-    //     temp.pavarde = pavarde;
-    //     temp.vid = t1*0.4 + egz*0.6;
-    //     studentai.push_back(temp);
-    // }
+    studentai.shrink_to_fit();
     in.close();
     cout << "Failas uzdarytas" << endl;
 }
@@ -90,13 +77,16 @@ void generuotiSarasa(int n) {
     ofstream of(name);
     string s1, s2;
     double t1, e;
+    mt19937 mt(19937);
+    uniform_int_distribution<int> dist(0, 10);
     for(int i = 0; i < n; i++) {
+        srand(time(0));
         s1 = "Vardas" + to_string(i);
         s2 = "Pavarde" + to_string(i);
         of << setw(15) << left << s1 << setw(15) << left << s2;
-        t1 = 1 + rand() % 10;
+        t1 = dist(mt);
         of << setw(15) << left << t1;
-        e = 1 + rand() % 10;
+        e = dist(mt);
         of << setw(15) << left << e << "\n";
     }
     of.close();

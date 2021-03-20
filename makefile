@@ -1,11 +1,12 @@
-output: vector.o src_2.o
-	g++ vector.o src_2.o -o output
+output: src.o functions.o
+	g++ src.o functions.o -o output
 
-src.o: vector.cpp header.h
-	g++ -c vector.cpp
+src.o: src.cpp header.h
+	g++ -c src.cpp
 
-src2.o: src_2.cpp header.h
-	g++ -c src_2.cpp
+src2.o: functions.cpp header.h
+	g++ -c functions.cpp
 
 clean:
 	rm *.o
+	rm *.txt
