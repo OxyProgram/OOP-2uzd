@@ -16,6 +16,7 @@ v0.5 - Skirtingų tipų konteinerių testavimas atliekant tam tikras užduotis.
 v1.0 - Naudojami 2 konteineriai, paspartintas programos veikimas.
 
 
+![Screenshot_1](https://user-images.githubusercontent.com/75229680/115230189-ad162d00-a11c-11eb-828f-87323e60a44d.jpg)
 
 
 
